@@ -35,7 +35,7 @@
                             Edit
                             </a>
                         </td>
-                        <td> <a [routerLink]="['ATMWithdraw',{userName: userName, cardNumber: card.cardNumber}]">
+                        <td> <a [routerLink]="['ATMWithdraw',{userName: userName, cardNumber: card.id, accountName: card.accountName, balance:card.balance.amount}]">
                             ATM Withdraw
                             </a>
                         </td>

@@ -44,7 +44,7 @@ export class CardService {
 
 		   headers.append('Content-Type', 'application/json');
        
-        return this._http.post('http://apirise16.azurewebsites.net/api/accounts',JSON.stringify({"usertoken":sessionStorage.getItem("userSession"),"cobrandtoken":sessionStorage.getItem("cobrandSession")}) ,{headers: headers})
+        return this._http.post('http://apirise16.azurewebsites.net/api/accountss',JSON.stringify({"usertoken":sessionStorage.getItem("userSession"),"cobrandtoken":sessionStorage.getItem("cobrandSession")}) ,{headers: headers})
             .map((response: Response) => <ICard> response.json())
             .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);
@@ -82,6 +82,16 @@ export class CardService {
 	        }
 	      );
 		
+	}
+	
+	generatePassCode(userName: string, cardNumber:number, amount:number, atmPin:number) : void {
+	let headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+    	 return this._http.get('api/cards/passcode.json',{headers: headers})
+            .map((response: Response) => <any> response.json())
+            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .catch(this.handleError);
 	}
 
      private handleError(error: Response) {

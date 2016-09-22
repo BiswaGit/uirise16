@@ -7,15 +7,46 @@
          <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
          
           <div class="row"  class="text-center" >
+          <h1>ATM Cash Withdraw</h1>
+          <br><br>
+          	<label>Card name : {{accountName}}</label>
+          	<br><br>
+          	<label>Available Balance : {{balance}}</label>
+          	<br><br>
+          	
             <label>Enter amount: </label>
             <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
             <br><br>
+            
+            <label>Enter ATM Pin: </label>
+            <input class="center" type="text" name="atmPin" placeholder="ATM Pin" [(ngModel)]='atmPin'/>
+            <br><br>
+            
+            
+        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
+           <INPUT TYPE="hidden" id="qrcode">
+            
+            
+            <a class='btn btn-default hide' (click)='scanQRCode()' style='width:150px'>
+	            	<i class='glyphicon'></i> Scan QR Code
+	        	</a>
+	        	
+	        	<div *ngIf="passcode">
+	        	<br>
+	        		Pin Generated successfully - {{passcode.passcode}}
+	        	<br>
+	        	</div>
+	        	
+	        	<a class='btn btn-default' (click)='genPassCode()' style='width:150px'>
+	            	<i class='glyphicon'></i> Generate passcode
+	        	</a>
+	        	
+	        	<br><br>
+            
          </div>
         
             <div class='panel-footer'>
-	        	<a class='btn btn-default' (click)='submit()' style='width:150px'>
-	            	<i class='glyphicon'></i> Submit
-	        	</a>
+	        	
 	        	<a class='btn btn-default' (click)='onBack()' style='width:150px'>
 	            	<i class='glyphicon glyphicon-chevron-left'></i> Back
 	        	</a>

@@ -31,15 +31,26 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
                     this._cardService = _cardService;
                     this.pageTitle = 'Cardless Money';
                 }
+                ATMWithdrawComponent.prototype.ngOnInit = function () {
+                    var accountName = this._routeParams.get('accountName');
+                    this.accountName = accountName;
+                    var balance = this._routeParams.get('balance');
+                    this.balance = balance;
+                    var userName = this._routeParams.get('userName');
+                    this.userName = userName;
+                    var cardNumber = this._routeParams.get('cardNumber');
+                    this.cardNumber = cardNumber;
+                };
+                ;
                 ATMWithdrawComponent.prototype.onBack = function () {
                     this._router.navigate(['Landing']);
                 };
-                ATMWithdrawComponent.prototype.submit = function () {
+                ATMWithdrawComponent.prototype.genPassCode = function () {
                     var _this = this;
-                    var userName = this._routeParams.get('userName');
-                    var cardNumber = this._routeParams.get('cardNumber');
-                    this._cardService.submitATMWithdrawAmount(userName, cardNumber, this.amount)
-                        .subscribe(function (error) { return _this.errorMessage = error; });
+                    this._cardService.generatePassCode(this.userName, this.cardNumber, this.amount, this.atmPin)
+                        .subscribe(function (passcode) { return _this.passcode = passcode; }, function (error) { return _this.errorMessage = error; });
+                };
+                ATMWithdrawComponent.prototype.scanQRCode = function () {
                 };
                 ATMWithdrawComponent = __decorate([
                     core_1.Component({

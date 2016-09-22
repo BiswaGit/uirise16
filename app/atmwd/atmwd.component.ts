@@ -13,6 +13,28 @@ export class ATMWithdrawComponent {
 	public pageTitle: string = 'Cardless Money';
 	amount: number;
 	errorMessage: string;
+	accountName: string;
+	balance: number;
+	atmPin: number;
+	userName: string;
+	cardNumber: number;
+	passcode: number;
+	
+	 ngOnInit(): void {
+ 		let accountName = this._routeParams.get('accountName');
+ 		this.accountName = accountName;
+ 		
+ 		let balance = this._routeParams.get('balance');
+ 		this.balance = balance;
+ 		
+   		let userName = this._routeParams.get('userName');
+   		this.userName = userName; 
+   		
+ 		let cardNumber = this._routeParams.get('cardNumber');
+   		this.cardNumber = cardNumber;
+   		   			
+   		
+  	};
 		
     constructor(public _routeParams: RouteParams,
     	private _router: Router,
@@ -22,14 +44,17 @@ export class ATMWithdrawComponent {
         this._router.navigate(['Landing']);
    }
    
-   submit(): void{
-   		let userName = this._routeParams.get('userName');
- 		let cardNumber = this._routeParams.get('cardNumber');
-   
-   		 this._cardService.submitATMWithdrawAmount(userName, cardNumber, this.amount)
+   genPassCode(): void{
+   		
+   		 this._cardService.generatePassCode(this.userName, this.cardNumber, this.amount, this.atmPin)
                      .subscribe(
+                     	passcode => this.passcode = passcode,
                        error =>  this.errorMessage = <any>error);
-   }
+     }
+     
+     scanQRCode(): void{
+     	
+     }
    
 
     
