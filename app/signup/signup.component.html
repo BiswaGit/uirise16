@@ -1,0 +1,20 @@
+<div class="panel panel-primary">
+   
+    <div class="panel-body"  >
+        
+        <div class="row"  class="text-center" >
+        <div>SignUp</div>
+            <br>
+             <input class="center" type="text" #username name="username" placeholder="User name" />
+            <br><br>
+            <input class="center" type="password" #password name="password" placeholder="Password"/>
+            <br><br>
+            <input class="center" type="text" #mobile name="mobileno" placeholder="Mobile Number"/>
+            <br><br>
+            <button class='btn btn-primary' (click)='submit( username.value, password.value, mobile.value)'>
+                            Submit
+              </button>
+              <br><br>
+        </div>
+    </div>
+</div>

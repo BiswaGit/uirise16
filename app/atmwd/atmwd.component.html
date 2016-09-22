@@ -1,0 +1,24 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+        
+         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+         
+          <div class="row"  class="text-center" >
+            <label>Enter amount: </label>
+            <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
+            <br><br>
+         </div>
+        
+            <div class='panel-footer'>
+	        	<a class='btn btn-default' (click)='submit()' style='width:150px'>
+	            	<i class='glyphicon'></i> Submit
+	        	</a>
+	        	<a class='btn btn-default' (click)='onBack()' style='width:150px'>
+	            	<i class='glyphicon glyphicon-chevron-left'></i> Back
+	        	</a>
+    		</div>
+    </div>
+</div>

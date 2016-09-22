@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+    	<div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    
+        <div class="row" >
+            <img src="./app/assets/images/20160113hoVirtualATM.jpg" 
+                 class="img-responsive center-block"
+                 style="max-height:300px;padding-bottom:50px"/>
+        </div>
+        <div class="row"  class="text-center" >
+            <div>Login to Cardless Money</div>
+            <br>
+            <input class="center" type="text" name="userName" placeholder="User name" [(ngModel)]='userName'/>
+            <br><br>
+            <input class="center" type="password" name="password"  placeholder="Password" [(ngModel)]='password'/>
+            <br><br>
+           <button class='btn btn-primary' (click)='authenticate()'>
+                            Login
+              </button>
+            <!-- <a [routerLink]="['Welcome']">Login</a> --> 
+              <br><br>
+               <a [routerLink]="['Signup']">Sign Up</a>
+        </div>
+                
+    </div>
+</div>

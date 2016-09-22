@@ -1,0 +1,65 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+        <div class='panel-heading' style='font-size:large'>
+            <a class='btn btn-default' (click)='logout()' style='width:80px'>
+            	<i class='glyphicon'></i> Logout
+        	</a>
+	        <h3>Welcome {{userName}} !!!</h3>
+	    </div>
+    	
+         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+         
+           <div class='table-responsive'>
+            <table class='table' *ngIf='cards && cards.account.length'>
+                <thead>
+                    <tr>
+                    	<th></th>
+                        <th>Card Number</th>
+                        <th>Card Name</th>
+                        <th>Available Balance</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='#card of cards.account'>
+                    	<td><input class="center" type="radio"/></td>
+                        <td>{{ card.id }}</td>
+                        <td>{{ card.accountName }}</td>
+                        <td>{{ card.balance.amount | currency:card.balance.currency:true:'1.2-2' }}</td>
+                         <td> <a [routerLink]="['Signup',{userName: userName}]">
+                            Edit
+                            </a>
+                        </td>
+                        <td> <a [routerLink]="['ATMWithdraw',{userName: userName, cardNumber: card.cardNumber}]">
+                            ATM Withdraw
+                            </a>
+                        </td>
+                        <td> <a [routerLink]="['Signup',{userName: userName}]">
+                            Pay
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class='panel-footer'>
+        	<a class='btn btn-default' (click)='logout()' style='width:150px'>
+            	<i class='glyphicon'></i> List of valid codes
+        	</a>
+        	<a class='btn btn-default' (click)='logout()' style='width:150px'>
+            	<i class='glyphicon'></i> Near by ATMs
+        	</a>
+    		</div>
+  	  </div>
+	   <INPUT TYPE="text" value="" id="qrcode">
+        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
+
+
+
+    </div>
+</div>
