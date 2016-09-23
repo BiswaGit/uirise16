@@ -40,7 +40,10 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
                     this.userName = userName;
                     var cardNumber = this._routeParams.get('cardNumber');
                     this.cardNumber = cardNumber;
+<<<<<<< HEAD
                     this.qrstring = "{accountname:" + accountName + ",balance:" + balance + ",username:" + userName + ",cardnumber:" + cardNumber + "}";
+=======
+>>>>>>> origin/master
                 };
                 ;
                 DepositAmountComponent.prototype.onBack = function () {

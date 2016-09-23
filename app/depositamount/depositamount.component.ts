@@ -3,7 +3,10 @@ import { RouteParams,RouteConfig, ROUTER_DIRECTIVES,Router } from 'angular2/rout
 
 import { CardService } from '../landing/card.service';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 @Component({
     templateUrl: 'app/depositamount/depositamount.component.html',
     directives: [ROUTER_DIRECTIVES]
@@ -18,7 +21,10 @@ export class DepositAmountComponent {
 	balance: number;
 	userName: string;
 	cardNumber: number;
+<<<<<<< HEAD
 	qrstring: string;
+=======
+>>>>>>> origin/master
 	
 	 ngOnInit(): void {
  		let accountName = this._routeParams.get('accountName');
@@ -32,12 +38,17 @@ export class DepositAmountComponent {
    		
  		let cardNumber = this._routeParams.get('cardNumber');
    		this.cardNumber = cardNumber;
+<<<<<<< HEAD
 
 this.qrstring="{accountname:"+accountName+",balance:"+balance+",username:"+userName+",cardnumber:"+cardNumber+"}";
    		
   	};
 
 
+=======
+   		
+  	};
+>>>>>>> origin/master
 		
     constructor(public _routeParams: RouteParams,
     	private _router: Router,
