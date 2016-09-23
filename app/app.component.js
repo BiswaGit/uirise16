@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './home/welcome.component', './signup/signup.component', './landing/landing.component', './atmwd/atmwd.component', './landing/card.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './home/welcome.component', './signup/signup.component', './landing/landing.component', './atmwd/atmwd.component', './landing/card.service', './payamount/payamount.component', './depositamount/depositamount.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, welcome_component_1, signup_component_1, landing_component_1, atmwd_component_1, card_service_1;
+    var core_1, http_1, router_1, welcome_component_1, signup_component_1, landing_component_1, atmwd_component_1, card_service_1, payamount_component_1, depositamount_component_1;
     var AppComponent;
     return {
         setters:[
@@ -38,6 +38,12 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
             },
             function (card_service_1_1) {
                 card_service_1 = card_service_1_1;
+            },
+            function (payamount_component_1_1) {
+                payamount_component_1 = payamount_component_1_1;
+            },
+            function (depositamount_component_1_1) {
+                depositamount_component_1 = depositamount_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -56,7 +62,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
                         { path: '/signup', name: 'Signup', component: signup_component_1.SignupComponent },
                         { path: '/welcome', name: 'Welcome', component: welcome_component_1.WelcomeComponent, useAsDefault: true },
                         { path: '/landing', name: 'Landing', component: landing_component_1.LandingComponent },
-                        { path: '/atmwd', name: 'ATMWithdraw', component: atmwd_component_1.ATMWithdrawComponent }
+                        { path: '/atmwd', name: 'ATMWithdraw', component: atmwd_component_1.ATMWithdrawComponent },
+                        { path: '/payamount', name: 'PayAmount', component: payamount_component_1.PayAmountComponent },
+                        { path: '/deposit', name: 'DepositAmount', component: depositamount_component_1.DepositAmountComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

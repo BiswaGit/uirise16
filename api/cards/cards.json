@@ -1,12 +1,46 @@
-[
+{
+  "account": [
     {
-        "cardNumber": 123,
-        "cardName": "Card 1",
-        "accountBal": 1234
-    },
-    {
-        "cardNumber": 456,
-        "cardName": "Card 2",
-        "accountBal": 72728
-    }
-]
+      "CONTAINER": "creditCard",
+      "providerAccountId": 10140270,
+      "isManual": false,
+      "accountName": "CREDIT CARD",
+      "accountStatus": "ACTIVE",
+      "url": "BILL_VALID",
+      "accountNumber": "xxxx8614",
+      "isAsset": false,
+      "balance": {
+        "amount": 1636.44,
+        "currency": "USD"
+      },
+      "id": 10281559,
+      "lastUpdated": "2016-09-21T15:50:58Z",
+      "includeInNetWorth": true,
+      "providerId": "16441",
+      "providerName": "Dag Site",
+      "accountType": "OTHER",
+      "availableCash": {
+        "amount": 600,
+        "currency": "USD"
+      },
+      "availableCredit": {
+        "amount": 1363,
+        "currency": "USD"
+      },
+      "totalCashLimit": {
+        "amount": 600,
+        "currency": "USD"
+      },
+      "totalCreditLine": {
+        "amount": 3000,
+        "currency": "USD"
+      },
+      "refreshinfo": {
+        "statusCode": 0,
+        "statusMessage": "OK",
+        "lastRefreshed": "2016-09-21T15:50:58Z",
+        "lastRefreshAttempt": "2016-09-21T15:50:58Z",
+        "nextRefreshScheduled": "2016-09-23T00:26:30Z"
+      }
+    }]
+}

@@ -23,6 +23,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,8 +40,12 @@
                             ATM Withdraw
                             </a>
                         </td>
-                        <td> <a [routerLink]="['Signup',{userName: userName}]">
+                        <td> <a [routerLink]="['PayAmount',{userName: userName, cardNumber: card.id, accountName: card.accountName, balance:card.balance.amount}]">
                             Pay
+                            </a>
+                        </td>
+                          <td> <a [routerLink]="['DepositAmount',{userName: userName, cardNumber: card.id, accountName: card.accountName, balance:card.balance.amount}]">
+                            Generate QR Code/Deposit
                             </a>
                         </td>
                     </tr>
@@ -54,10 +59,13 @@
         	<a class='btn btn-default' (click)='logout()' style='width:150px'>
             	<i class='glyphicon'></i> Near by ATMs
         	</a>
+        	<a class='btn btn-default' (click)='logout()' style='width:150px'>
+            	<i class='glyphicon'></i> Add account
+        	</a>
+        	
     		</div>
   	  </div>
-	   <INPUT TYPE="text" value="" id="qrcode">
-        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
+
 
 
 

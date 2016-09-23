@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+        
+         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+         
+          <div class="row"  class="text-center" >
+          <h1>Pay Amount</h1>
+          <br><br>
+          	<label>Card name : {{accountName}}</label>
+          	<br><br>
+          	<label>Available Balance : {{balance}}</label>
+          	<br><br>
+          	
+            <label>Enter amount: </label>
+            <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
+            <br><br>
+            
+            
+        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
+           <INPUT TYPE="hidden" id="qrcode">
+            
+            
+            <a class='btn btn-default hide' (click)='scanQRCodeorPay()' style='width:150px'>
+	            	<i class='glyphicon'></i> Scan QR Code/Pay
+	        	</a>
+	        	
+			<br>
+			<br>            
+         </div>
+        
+            <div class='panel-footer'>
+	        	
+	        	<a class='btn btn-default' (click)='onBack()' style='width:150px'>
+	            	<i class='glyphicon glyphicon-chevron-left'></i> Back
+	        	</a>
+    		</div>
+    </div>
+</div>
