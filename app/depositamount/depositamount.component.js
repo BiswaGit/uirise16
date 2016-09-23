@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../landing/card.service', "angular2/src/core/zone/ng_zone"], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../landing/card.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, card_service_1, ng_zone_1;
-    var ATMWithdrawComponent;
+    var core_1, router_1, card_service_1;
+    var DepositAmountComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -22,21 +22,16 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
             },
             function (card_service_1_1) {
                 card_service_1 = card_service_1_1;
-            },
-            function (ng_zone_1_1) {
-                ng_zone_1 = ng_zone_1_1;
             }],
         execute: function() {
-            ATMWithdrawComponent = (function () {
-                function ATMWithdrawComponent(_routeParams, _router, _cardService, _ngzone) {
+            DepositAmountComponent = (function () {
+                function DepositAmountComponent(_routeParams, _router, _cardService) {
                     this._routeParams = _routeParams;
                     this._router = _router;
                     this._cardService = _cardService;
-                    this._ngzone = _ngzone;
                     this.pageTitle = 'Cardless Money';
-                    window.angularComponentRef = { component: this, zone: _ngzone };
                 }
-                ATMWithdrawComponent.prototype.ngOnInit = function () {
+                DepositAmountComponent.prototype.ngOnInit = function () {
                     var accountName = this._routeParams.get('accountName');
                     this.accountName = accountName;
                     var balance = this._routeParams.get('balance');
@@ -45,31 +40,25 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
                     this.userName = userName;
                     var cardNumber = this._routeParams.get('cardNumber');
                     this.cardNumber = cardNumber;
+                    this.qrstring = "{accountname:" + accountName + ",balance:" + balance + ",username:" + userName + ",cardnumber:" + cardNumber + "}";
                 };
                 ;
-                ATMWithdrawComponent.prototype.onBack = function () {
+                DepositAmountComponent.prototype.onBack = function () {
                     this._router.navigate(['Landing']);
                 };
-                ATMWithdrawComponent.prototype.genPassCode = function () {
-                    var _this = this;
-                    this._cardService.generatePassCode(this.userName, this.cardNumber, this.amount, this.atmPin)
-                        .subscribe(function (passcode) { return _this.passcode = passcode; }, function (error) { return _this.errorMessage = error; });
+                DepositAmountComponent.prototype.scanQRCodeorPay = function () {
                 };
-                ATMWithdrawComponent.prototype.scanQRCode = function (qrvalue) {
-                    this.qrvalue = qrvalue;
-                    console.log("qrValue: " + qrvalue);
-                };
-                ATMWithdrawComponent = __decorate([
+                DepositAmountComponent = __decorate([
                     core_1.Component({
-                        templateUrl: 'app/atmwd/atmwd.component.html',
+                        templateUrl: 'app/depositamount/depositamount.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.Router, card_service_1.CardService, ng_zone_1.NgZone])
-                ], ATMWithdrawComponent);
-                return ATMWithdrawComponent;
+                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.Router, card_service_1.CardService])
+                ], DepositAmountComponent);
+                return DepositAmountComponent;
             }());
-            exports_1("ATMWithdrawComponent", ATMWithdrawComponent);
+            exports_1("DepositAmountComponent", DepositAmountComponent);
         }
     }
 });
-//# sourceMappingURL=atmwd.component.js.map
+//# sourceMappingURL=depositamount.component.js.map

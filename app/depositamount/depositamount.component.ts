@@ -2,26 +2,23 @@ import { Component } from 'angular2/core';
 import { RouteParams,RouteConfig, ROUTER_DIRECTIVES,Router } from 'angular2/router';
 
 import { CardService } from '../landing/card.service';
-import {NgZone} from "angular2/src/core/zone/ng_zone";
+
 
 @Component({
-    templateUrl: 'app/atmwd/atmwd.component.html',
+    templateUrl: 'app/depositamount/depositamount.component.html',
     directives: [ROUTER_DIRECTIVES]
     
 })
 
-export class ATMWithdrawComponent {
+export class DepositAmountComponent {
 	public pageTitle: string = 'Cardless Money';
 	amount: number;
 	errorMessage: string;
 	accountName: string;
 	balance: number;
-	atmPin: number;
 	userName: string;
 	cardNumber: number;
-	passcode: number;
-	public qrvalue: string;
-	public zone: NgZone;
+	qrstring: string;
 	
 	 ngOnInit(): void {
  		let accountName = this._routeParams.get('accountName');
@@ -35,37 +32,25 @@ export class ATMWithdrawComponent {
    		
  		let cardNumber = this._routeParams.get('cardNumber');
    		this.cardNumber = cardNumber;
-   		   			
+
+this.qrstring="{accountname:"+accountName+",balance:"+balance+",username:"+userName+",cardnumber:"+cardNumber+"}";
    		
   	};
 
 
+		
     constructor(public _routeParams: RouteParams,
     	private _router: Router,
-    	private _cardService: CardService,public _ngzone:NgZone) {
-		window.angularComponentRef = {component: this, zone: _ngzone};
-	}
+    	private _cardService: CardService) {}
    
      onBack(): void {
         this._router.navigate(['Landing']);
    }
    
-   genPassCode(): void{
-   		
-   		 this._cardService.generatePassCode(this.userName, this.cardNumber, this.amount, this.atmPin)
-                     .subscribe(
-                     	passcode => this.passcode = passcode,
-                       error =>  this.errorMessage = <any>error);
-     }
-     
-     scanQRCode(qrvalue: string): void{
-		 this.qrvalue=qrvalue;
-     	console.log("qrValue: "+qrvalue);
+   scanQRCodeorPay(): void{
      	
      }
    
 
     
 }
-
-

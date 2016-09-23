@@ -1,0 +1,25 @@
+<div class="panel panel-primary" id="depositpage" >
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body"  >
+        <img src="./app/assets/images/images.png" onload="showqrCode()" width="1" height="1"/>
+         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+
+        <div class="row" class="text-center" >
+            <h1>Generated QR Code</h1>
+            <br><br>
+
+              <div id="qrcodeimg"></div>
+<input type="hidden" value={{qrstring}} id="qrstring">
+          </div>
+        
+            <div class='panel-footer'>
+
+	        	<a class='btn btn-default' (click)='onBack()' style='width:150px'>
+	            	<i class='glyphicon glyphicon-chevron-left'></i> Back
+	        	</a>
+    		</div>
+    </div>
+</div>
