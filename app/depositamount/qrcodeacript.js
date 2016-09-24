@@ -45,8 +45,7 @@
  
  function doPoll(destuserid, destaccountnumber){
 	 
-	 destuserid = "ashish";
-	 destaccountnumber = "1234567";
+	 
 	 
 	 $.ajax({
         type: "GET",
