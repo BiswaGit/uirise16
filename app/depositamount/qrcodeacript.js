@@ -37,7 +37,7 @@
      var test = JSON.parse(jq('#qrstring').val());
      
      
-     doPoll(test.accountname, test.username);
+     doPoll( test.username,test.accountname);
      
     
  }
