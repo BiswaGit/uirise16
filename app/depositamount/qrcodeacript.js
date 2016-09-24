@@ -45,7 +45,7 @@
  
  function doPoll(destuserid, destaccountnumber){
 	 
-	 
+var i=0;
 	 
 	 $.ajax({
         type: "GET",
@@ -56,10 +56,12 @@
         	console.log('html' + data);
         	 var arr= JSON.parse(data);
            console.log('html1' + arr._id);
-          
+
+
+if(i>6){
            
            if(arr._id==''){
-           
+           i++;
         	   setTimeout(doPoll,5000);
            }else{
         	   
@@ -78,6 +80,7 @@
                $('#_id').text(arr.amount +" has been debited successfully!!! ");
            }
         }
+	}
     });
      
      
