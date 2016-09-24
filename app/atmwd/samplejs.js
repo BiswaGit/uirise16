@@ -16,7 +16,8 @@ function updatedata(data) {
 
 function updatepaydata(data) {
 
-    window.angularComponentRef.zone.run(() => {window.angularComponentRef.component.scanQRCodeorPay(data);})
+    var tempdata= JSON.parse(data);
+    window.angularComponentRef.zone.run(() => {window.angularComponentRef.component.scanQRCodeorPay(tempdata.username,tempdata.accountname);})
     // zone.run(() => { ATMWithdrawComponent.scanQRCode(data); });
 
 
