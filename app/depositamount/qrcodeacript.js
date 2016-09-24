@@ -58,7 +58,7 @@ var i=0;
            console.log('html1' + arr._id);
 
 
-if(i>6){
+if(i<6){
            
            if(arr._id==''){
            i++;
