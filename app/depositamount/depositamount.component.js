@@ -40,13 +40,11 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
                     this.userName = userName;
                     var cardNumber = this._routeParams.get('cardNumber');
                     this.cardNumber = cardNumber;
-                    this.qrstring = "{accountname:" + accountName + ",balance:" + balance + ",username:" + userName + ",cardnumber:" + cardNumber + "}";
+                    this.qrstring = "{\"accountname\":\"" + accountName + "\",\"username\":\"" + userName + "\"}";
                 };
                 ;
                 DepositAmountComponent.prototype.onBack = function () {
                     this._router.navigate(['Landing']);
-                };
-                DepositAmountComponent.prototype.scanQRCodeorPay = function () {
                 };
                 DepositAmountComponent = __decorate([
                     core_1.Component({

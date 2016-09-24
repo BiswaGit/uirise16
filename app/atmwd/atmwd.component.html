@@ -23,19 +23,30 @@
             <br><br>
             
             
+            
+            <div *ngIf="_id">
+	        	<br>
+	        		Amount has been successfully deducted!!!
+	        	<br>
+	        	</div>
+	        	
+	        	<br><br>
+            
         <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
            <INPUT TYPE="hidden" id="qrcode">
             
             
-            <a class='btn btn-default hide' (click)='scanQRCode()' style='width:150px'>
+           <!-- <a class='btn btn-default' (click)='scanQRCodeForATM()' style='width:150px'>
 	            	<i class='glyphicon'></i> Scan QR Code
-	        	</a>
+	        	</a>-->
 	        	
 	        	<div *ngIf="passcode">
 	        	<br>
 	        		Pin Generated successfully - {{passcode.passcode}}
 	        	<br>
 	        	</div>
+	        	
+	        	<br><br>
 	        	
 	        	<a class='btn btn-default' (click)='genPassCode()' style='width:150px'>
 	            	<i class='glyphicon'></i> Generate passcode

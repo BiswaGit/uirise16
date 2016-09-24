@@ -19,6 +19,8 @@ export class DepositAmountComponent {
 	userName: string;
 	cardNumber: number;
 	qrstring: string;
+	stopPollingS: boolean;
+	
 	
 	 ngOnInit(): void {
  		let accountName = this._routeParams.get('accountName');
@@ -33,7 +35,7 @@ export class DepositAmountComponent {
  		let cardNumber = this._routeParams.get('cardNumber');
    		this.cardNumber = cardNumber;
 
-this.qrstring="{accountname:"+accountName+",balance:"+balance+",username:"+userName+",cardnumber:"+cardNumber+"}";
+		this.qrstring="{\"accountname\":\""+accountName+"\",\"username\":\""+userName+"\"}";
    		
   	};
 
@@ -46,11 +48,7 @@ this.qrstring="{accountname:"+accountName+",balance:"+balance+",username:"+userN
      onBack(): void {
         this._router.navigate(['Landing']);
    }
-   
-   scanQRCodeorPay(): void{
-     	
+     
+     
      }
-   
-
-    
-}
+   }

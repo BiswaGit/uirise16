@@ -87,12 +87,43 @@ export class CardService {
 	generatePassCode(userName: string, cardNumber:number, amount:number, atmPin:number) : void {
 	let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
+		
+		let body = JSON.stringify({ "userid":userName, "accountnumber":cardNumber,  "amount": amount, "atmpin":atmPin});
 
-    	 return this._http.get('api/cards/passcode.json',{headers: headers})
+    	 return this._http.post('http://apirise16.azurewebsites.net/api/addPasscode',body, {headers: headers})
             .map((response: Response) => <any> response.json())
             .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);
 	}
+	
+	scanQRCode(destuserid : string, userName : string, cardNumber : string, amount : string, destaccountnumber:string): void  {
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+		 let body = JSON.stringify({ "destuserid":destuserid, "userid":userName, "accountnumber":cardNumber,  "amount": amount, "destaccountnumber":destaccountnumber});
+
+    	 return this._http.post('http://apirise16.azurewebsites.net/api/addQrcode',body, {headers: headers})
+            .map((response: Response) => <any> response.json())
+            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .catch(this.handleError);
+	}
+
+	pollScanQrCode(destuserid : string, destaccountnumber :string): void{
+		
+	
+	
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+    	 return this._http.get('http://apirise16.azurewebsites.net/api/getqrcode?destuserid='+destuserid+"&destaccountnumber="+destaccountnumber, {headers: headers})
+            .map((response: Response) => <any> response.json())
+            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .catch(this.handleError);
+            
+            
+      
+            
+	}	
 
      private handleError(error: Response) {
         // in a real world app, we may send the server to some remote logging infrastructure

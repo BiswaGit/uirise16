@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../landing/card.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../landing/card.service', "angular2/src/core/zone/ng_zone"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, card_service_1;
+    var core_1, router_1, card_service_1, ng_zone_1;
     var PayAmountComponent;
     return {
         setters:[
@@ -22,14 +22,19 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
             },
             function (card_service_1_1) {
                 card_service_1 = card_service_1_1;
+            },
+            function (ng_zone_1_1) {
+                ng_zone_1 = ng_zone_1_1;
             }],
         execute: function() {
             PayAmountComponent = (function () {
-                function PayAmountComponent(_routeParams, _router, _cardService) {
+                function PayAmountComponent(_routeParams, _router, _cardService, _ngzone) {
                     this._routeParams = _routeParams;
                     this._router = _router;
                     this._cardService = _cardService;
+                    this._ngzone = _ngzone;
                     this.pageTitle = 'Cardless Money';
+                    window.angularComponentRef = { component: this, zone: _ngzone };
                 }
                 PayAmountComponent.prototype.ngOnInit = function () {
                     var accountName = this._routeParams.get('accountName');
@@ -45,14 +50,21 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
                 PayAmountComponent.prototype.onBack = function () {
                     this._router.navigate(['Landing']);
                 };
-                PayAmountComponent.prototype.scanQRCodeorPay = function () {
+                PayAmountComponent.prototype.scanQRCodeorPay = function (destuserid, destaccountnumber) {
+                    var _this = this;
+                    this.destuserid = destuserid;
+                    console.log("destuserid: " + destuserid);
+                    this.destaccountnumber = destaccountnumber;
+                    console.log("destaccountnumber: " + destaccountnumber);
+                    this._cardService.scanQRCode(this.destuserid, this.userName, this.cardNumber, this.amount, this.destaccountnumber)
+                        .subscribe(function (_id) { return _this._id = _id; }, function (error) { return _this.errorMessage = error; });
                 };
                 PayAmountComponent = __decorate([
                     core_1.Component({
                         templateUrl: 'app/payamount/payamount.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.Router, card_service_1.CardService])
+                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.Router, card_service_1.CardService, ng_zone_1.NgZone])
                 ], PayAmountComponent);
                 return PayAmountComponent;
             }());

@@ -72,7 +72,25 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 CardService.prototype.generatePassCode = function (userName, cardNumber, amount, atmPin) {
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this._http.get('api/cards/passcode.json', { headers: headers })
+                    var body = JSON.stringify({ "userid": userName, "accountnumber": cardNumber, "amount": amount, "atmpin": atmPin });
+                    return this._http.post('http://apirise16.azurewebsites.net/api/addPasscode', body, { headers: headers })
+                        .map(function (response) { return response.json(); })
+                        .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
+                        .catch(this.handleError);
+                };
+                CardService.prototype.scanQRCode = function (destuserid, userName, cardNumber, amount, destaccountnumber) {
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    var body = JSON.stringify({ "destuserid": destuserid, "userid": userName, "accountnumber": cardNumber, "amount": amount, "destaccountnumber": destaccountnumber });
+                    return this._http.post('http://apirise16.azurewebsites.net/api/addQrcode', body, { headers: headers })
+                        .map(function (response) { return response.json(); })
+                        .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
+                        .catch(this.handleError);
+                };
+                CardService.prototype.pollScanQrCode = function (destuserid, destaccountnumber) {
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    return this._http.get('http://apirise16.azurewebsites.net/api/getqrcode?destuserid=' + destuserid + "&destaccountnumber=" + destaccountnumber, { headers: headers })
                         .map(function (response) { return response.json(); })
                         .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
                         .catch(this.handleError);

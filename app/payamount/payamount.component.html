@@ -18,14 +18,20 @@
             <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
             <br><br>
             
+              <div *ngIf="_id">
+	        	<br>
+	        		Amount has been successfully deducted!!!
+	        	<br>
+	        	</div>
+	        	 <br><br>
             
-        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://OpenQRScreen'">
+        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://PayQRScreen'">
            <INPUT TYPE="hidden" id="qrcode">
             
             
-            <a class='btn btn-default hide' (click)='scanQRCodeorPay()' style='width:150px'>
+           <!-- <a class='btn btn-default' (click)='scanQRCodeorPay(123, 10281561)' style='width:150px'>
 	            	<i class='glyphicon'></i> Scan QR Code/Pay
-	        	</a>
+	        	</a>-->
 	        	
 			<br>
 			<br>            

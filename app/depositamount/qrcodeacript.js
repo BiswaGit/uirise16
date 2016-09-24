@@ -31,4 +31,59 @@
      };
 
      jq('#qrcodeimg').empty().qrcode(options);
+     
+     console.log(jq('#qrstring').val());
+     
+     var test = JSON.parse(jq('#qrstring').val());
+     
+     
+     doPoll(test.accountname, test.username);
+     
+    
+ }
+ 
+ 
+ function doPoll(destuserid, destaccountnumber){
+	 
+	 destuserid = "ashish";
+	 destaccountnumber = "1234567";
+	 
+	 $.ajax({
+        type: "GET",
+        async: "false",
+        dataType:'text',
+        url: 'http://apirise16.azurewebsites.net/api/getqrcode?destuserid='+destuserid+'&destaccountnumber='+destaccountnumber,
+        success: function(data) {
+        	console.log('html' + data);
+        	 var arr= JSON.parse(data);
+           console.log('html1' + arr._id);
+           $('#_id').text(arr._id);
+           
+           if(arr._id==''){
+           
+        	   setTimeout(doPoll,5000);
+           }else{
+        	   
+        	   $.ajax({
+        	        type: "GET",
+        	        async: "false",
+        	        //data: { get_param: 'value' }, 
+        	        dataType:'text',
+        	        url: 'http://apirise16.azurewebsites.net/api/deleteqrcode?destuserid='+destuserid+'&destaccountnumber='+destaccountnumber,
+        	        success: function(data) {
+        	        	console.log(data);
+        	        }
+        	        });
+        	   
+        	   $('#_id').addClass("show");
+        	   
+           }
+        }
+    });
+     
+     
+     
+  
+     
+     
  }

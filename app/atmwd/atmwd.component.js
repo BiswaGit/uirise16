@@ -55,9 +55,12 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
                     this._cardService.generatePassCode(this.userName, this.cardNumber, this.amount, this.atmPin)
                         .subscribe(function (passcode) { return _this.passcode = passcode; }, function (error) { return _this.errorMessage = error; });
                 };
-                ATMWithdrawComponent.prototype.scanQRCode = function (qrvalue) {
-                    this.qrvalue = qrvalue;
-                    console.log("qrValue: " + qrvalue);
+                ATMWithdrawComponent.prototype.scanQRCodeForATM = function (destuserid) {
+                    var _this = this;
+                    this.destuserid = destuserid;
+                    console.log("destuserid: " + destuserid);
+                    this._cardService.scanQRCode(this.destuserid, this.userName, this.cardNumber, this.amount, "")
+                        .subscribe(function (_id) { return _this._id = _id; }, function (error) { return _this.errorMessage = error; });
                 };
                 ATMWithdrawComponent = __decorate([
                     core_1.Component({

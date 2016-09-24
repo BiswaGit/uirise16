@@ -20,8 +20,9 @@ export class ATMWithdrawComponent {
 	userName: string;
 	cardNumber: number;
 	passcode: number;
-	public qrvalue: string;
+	public destuserid: string;
 	public zone: NgZone;
+	_id:string;
 	
 	 ngOnInit(): void {
  		let accountName = this._routeParams.get('accountName');
@@ -58,9 +59,15 @@ export class ATMWithdrawComponent {
                        error =>  this.errorMessage = <any>error);
      }
      
-     scanQRCode(qrvalue: string): void{
-		 this.qrvalue=qrvalue;
-     	console.log("qrValue: "+qrvalue);
+     scanQRCodeForATM(destuserid: string): void{
+		 this.destuserid = destuserid;
+     	console.log("destuserid: "+destuserid);
+     	
+     	
+     	this._cardService.scanQRCode(this.destuserid, this.userName, this.cardNumber, this.amount, "")
+                     .subscribe(
+                     	_id => this._id = _id,
+                       error =>  this.errorMessage = <any>error);
      	
      }
    

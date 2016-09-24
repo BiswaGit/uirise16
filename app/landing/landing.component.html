@@ -11,13 +11,12 @@
 	    </div>
     	
          <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
-         
+
            <div class='table-responsive'>
             <table class='table' *ngIf='cards && cards.account.length'>
                 <thead>
                     <tr>
-                    	<th></th>
-                        <th>Card Number</th>
+                    	<th>Card Number</th>
                         <th>Card Name</th>
                         <th>Available Balance</th>
                         <th></th>
@@ -28,7 +27,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='#card of cards.account'>
-                    	<td><input class="center" type="radio"/></td>
+                    
                         <td>{{ card.id }}</td>
                         <td>{{ card.accountName }}</td>
                         <td>{{ card.balance.amount | currency:card.balance.currency:true:'1.2-2' }}</td>
