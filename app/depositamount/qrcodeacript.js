@@ -75,7 +75,7 @@
         	        });
         	   
         	   $('#_id').addClass("show");
-        	   
+               $('#_id').text(arr.amount +" has been debited successfully!!! ");
            }
         }
     });
