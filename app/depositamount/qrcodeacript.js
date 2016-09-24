@@ -56,7 +56,7 @@
         	console.log('html' + data);
         	 var arr= JSON.parse(data);
            console.log('html1' + arr._id);
-           $('#_id').text(arr._id);
+          
            
            if(arr._id==''){
            
