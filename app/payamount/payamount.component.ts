@@ -22,6 +22,8 @@ export class PayAmountComponent {
 	public destaccountnumber: string;
 	_id:string;
 	public zone: NgZone;
+	verifiedOTP: boolean;
+	recievedOTP: boolean;
 	
 	 ngOnInit(): void {
  		let accountName = this._routeParams.get('accountName');
@@ -36,6 +38,9 @@ export class PayAmountComponent {
  		let cardNumber = this._routeParams.get('cardNumber');
    		this.cardNumber = cardNumber;
    		
+   		
+   		this.verifiedOTP = false;
+   		this.recievedOTP = false;
   	};
 		
     constructor(public _routeParams: RouteParams,
@@ -45,7 +50,7 @@ export class PayAmountComponent {
 	}
    
      onBack(): void {
-        this._router.navigate(['Landing']);
+         this._router.parent.navigateByUrl('/landing?userName='+this.userName);
    }
    
    scanQRCodeorPay(destuserid: string, destaccountnumber: string): void{
@@ -67,5 +72,13 @@ export class PayAmountComponent {
      }
    
 
+	sendOTP(): void{
+		this.recievedOTP = true;
+	}
+	
+	
+	verify(): void{
+		this.verifiedOTP = true;
+	}
     
 }

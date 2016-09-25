@@ -46,7 +46,7 @@ export class DepositAmountComponent {
     	private _cardService: CardService) {}
    
      onBack(): void {
-        this._router.navigate(['Landing']);
+		 this._router.parent.navigateByUrl('/landing?userName='+this.userName);
    }
      
      

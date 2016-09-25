@@ -18,23 +18,45 @@
             <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
             <br><br>
             
+            <a class='btn btn-default' (click)='sendOTP()' style='width:150px'>
+	            	<i class='glyphicon'></i> Send OTP
+	       </a>
+            
+            <br><br>
+            <div *ngIf='recievedOTP'>
+	            <label>Enter OTP: </label>
+	           	 <input class="center" type="text" name="otp" placeholder="Enter OTP" [(ngModel)]='otp'/>
+	           	 <br><br>
+	           	 
+	         	  <a class='btn btn-default' (click)='verify()' style='width:150px'>
+		            	<i class='glyphicon'></i> Verify
+		       		</a>
+	            
+	        </div>
+            
               <div *ngIf="_id">
 	        	<br>
 	        		Amount has been successfully deducted!!!
 	        	<br>
-	        	</div>
+	        </div>
 	        	 <br><br>
             
-        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://PayQRScreen'">
-           <INPUT TYPE="hidden" id="qrcode">
+           <div *ngIf='verifiedOTP'> 
+           
+           		Verified successfully!!! Scan QR code for payment!!!
+	        	<br><br>
             
-            
-           <!-- <a class='btn btn-default' (click)='scanQRCodeorPay(123, 10281561)' style='width:150px'>
-	            	<i class='glyphicon'></i> Scan QR Code/Pay
-	        	</a>-->
-	        	
-			<br>
-			<br>            
+		        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://PayQRScreen'">
+		           <INPUT TYPE="hidden" id="qrcode">
+		            
+		            
+		           <!-- <a class='btn btn-default' (click)='scanQRCodeorPay(123, 10281561)' style='width:150px'>
+			            	<i class='glyphicon'></i> Scan QR Code/Pay
+			        	</a>-->
+			        	
+					<br>
+					<br>       
+			</div>     
          </div>
         
             <div class='panel-footer'>
