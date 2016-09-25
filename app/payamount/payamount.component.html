@@ -28,7 +28,7 @@
 	           	 <input class="center" type="text" name="otp" placeholder="Enter OTP" [(ngModel)]='otp'/>
 	           	 <br><br>
 	           	 
-	         	  <a class='btn btn-default' (click)='verify()' style='width:150px'>
+	         	  <a class='btn btn-default' onclick="verify()" style='width:150px'>
 		            	<i class='glyphicon'></i> Verify
 		       		</a>
 	            
@@ -41,7 +41,7 @@
 	        </div>
 	        	 <br><br>
             
-           <div *ngIf='verifiedOTP'> 
+           <div id='verifiedOTP' class="hide"> 
            
            		Verified successfully!!! Scan QR code for payment!!!
 	        	<br><br>

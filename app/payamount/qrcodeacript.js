@@ -32,3 +32,9 @@ function sendOTP(){
      
      
  }
+
+
+function verify(){
+	 $('#verifiedOTP').addClass("show");
+   	
+}
