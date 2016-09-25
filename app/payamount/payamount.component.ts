@@ -72,9 +72,9 @@ export class PayAmountComponent {
      }
    
 
-	sendOTP(): void{
+/*	sendOTP(): void{
 		this.recievedOTP = true;
-	}
+	}*/
 	
 	
 	verify(): void{

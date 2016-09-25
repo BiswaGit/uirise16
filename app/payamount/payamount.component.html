@@ -18,12 +18,12 @@
             <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
             <br><br>
             
-            <a class='btn btn-default' (click)='sendOTP()' style='width:150px'>
+            <a class='btn btn-default' onclick="sendOTP()" style='width:150px'>
 	            	<i class='glyphicon'></i> Send OTP
 	       </a>
             
             <br><br>
-            <div *ngIf='recievedOTP'>
+            <div id='recievedOTP' class="hide">
 	            <label>Enter OTP: </label>
 	           	 <input class="center" type="text" name="otp" placeholder="Enter OTP" [(ngModel)]='otp'/>
 	           	 <br><br>
