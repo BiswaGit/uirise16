@@ -19,7 +19,7 @@
                     	<th>Card Number</th>
                         <th>Card Name</th>
                         <th>Available Balance</th>
-                        <th></th>
+                       
                         <th></th>
                         <th></th>
                         <th></th>
@@ -31,10 +31,7 @@
                         <td>{{ card.id }}</td>
                         <td>{{ card.accountName }}</td>
                         <td>{{ card.balance.amount | currency:card.balance.currency:true:'1.2-2' }}</td>
-                         <td> <a [routerLink]="['Signup',{userName: userName}]">
-                            Edit
-                            </a>
-                        </td>
+                         
                         <td> <a [routerLink]="['ATMWithdraw',{userName: userName, cardNumber: card.id, accountName: card.accountName, balance:card.balance.amount}]">
                             ATM Withdraw
                             </a>

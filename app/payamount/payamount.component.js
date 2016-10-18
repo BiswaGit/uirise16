@@ -45,10 +45,12 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
                     this.userName = userName;
                     var cardNumber = this._routeParams.get('cardNumber');
                     this.cardNumber = cardNumber;
+                    this.verifiedOTP = false;
+                    this.recievedOTP = false;
                 };
                 ;
                 PayAmountComponent.prototype.onBack = function () {
-                    this._router.navigate(['Landing']);
+                    this._router.parent.navigateByUrl('/landing?userName=' + this.userName);
                 };
                 PayAmountComponent.prototype.scanQRCodeorPay = function (destuserid, destaccountnumber) {
                     var _this = this;
@@ -58,6 +60,12 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
                     console.log("destaccountnumber: " + destaccountnumber);
                     this._cardService.scanQRCode(this.destuserid, this.userName, this.cardNumber, this.amount, this.destaccountnumber)
                         .subscribe(function (_id) { return _this._id = _id; }, function (error) { return _this.errorMessage = error; });
+                };
+                /*	sendOTP(): void{
+                        this.recievedOTP = true;
+                    }*/
+                PayAmountComponent.prototype.verify = function () {
+                    this.verifiedOTP = true;
                 };
                 PayAmountComponent = __decorate([
                     core_1.Component({

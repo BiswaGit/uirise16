@@ -24,3 +24,12 @@ function updatepaydata(data) {
     document.getElementById("qrcode").value = data;
     console.log(data);
 };
+
+function updatenfcdata(name,card,amount) {
+
+    
+    
+    
+   $('#_id').addClass("show");
+     $('#_id').text(name+" diposited $"+amount+" from card number "+card +" to your account successfully!!! ");
+};

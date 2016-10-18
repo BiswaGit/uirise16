@@ -15,7 +15,11 @@
           	<br><br>
           	
             <label>Enter amount: </label>
-            <input class="center" type="text" name="amount" placeholder="Amount" [(ngModel)]='amount'/>
+            <input class="center" type="text" name="amount" id="amount" placeholder="Amount" [(ngModel)]='amount'/>
+             <INPUT TYPE="hidden" id="accountName" value={{accountName}}/>
+              <INPUT TYPE="hidden" id="userName" value={{userName}}/>
+               <INPUT TYPE="hidden" id="cardNumber" value={{cardNumber}}/>
+              
             <br><br>
             
             <a class='btn btn-default' onclick="sendOTP()" style='width:150px'>
@@ -41,15 +45,16 @@
 	        </div>
 	        	 <br><br>
             
-           <div id='verifiedOTP' class="hide"> 
+           <div id='verifiedOTP' class="show"> 
            
-           		Verified successfully!!! Scan QR code for payment!!!
+           		
 	        	<br><br>
-            
-		        <INPUT TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://PayQRScreen'">
+            <INPUT class='btn btn-default' TYPE="button" value="Tap and Pay" onclick="nfcPay()"> 
+		        
+                    <br><br>
 		           <INPUT TYPE="hidden" id="qrcode">
-		            
-		            
+		           
+		            <INPUT class='btn btn-default' TYPE="button" value="Scan Qr Code" onClick="window.location='Navigation://PayQRScreen'">
 		           <!-- <a class='btn btn-default' (click)='scanQRCodeorPay(123, 10281561)' style='width:150px'>
 			            	<i class='glyphicon'></i> Scan QR Code/Pay
 			        	</a>-->

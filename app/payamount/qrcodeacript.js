@@ -38,3 +38,10 @@ function verify(){
 	 $('#verifiedOTP').addClass("show");
    	
 }
+function nfcPay(){
+    
+	window.location='Navigation://PayNFCScreen?userid='+ document.getElementById('userName').value+'&cardNum='+document.getElementById('cardNumber').value+'&amount='+document.getElementById('amount').value;
+   	
+}
+
+

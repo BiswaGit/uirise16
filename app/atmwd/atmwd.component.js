@@ -48,7 +48,7 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service', 
                 };
                 ;
                 ATMWithdrawComponent.prototype.onBack = function () {
-                    this._router.navigate(['Landing']);
+                    this._router.parent.navigateByUrl('/landing?userName=' + this.userName);
                 };
                 ATMWithdrawComponent.prototype.genPassCode = function () {
                     var _this = this;

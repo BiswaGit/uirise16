@@ -44,7 +44,7 @@ System.register(['angular2/core', 'angular2/router', '../landing/card.service'],
                 };
                 ;
                 DepositAmountComponent.prototype.onBack = function () {
-                    this._router.navigate(['Landing']);
+                    this._router.parent.navigateByUrl('/landing?userName=' + this.userName);
                 };
                 DepositAmountComponent = __decorate([
                     core_1.Component({

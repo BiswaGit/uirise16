@@ -36,7 +36,7 @@
      
      var test = JSON.parse(jq('#qrstring').val());
      
-     
+     window.location='Navigation://DepositNFCScreen';
      doPoll( test.username,test.accountname);
      
     
