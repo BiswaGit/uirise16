@@ -7,7 +7,7 @@ function sendOTP(){
         type: "GET",
         async: "false",
         dataType:'text',
-        url: 'https://app.mymagik.com/',
+        url: 'https://app.mymagik.com/saralpay/send-otp',
         success: function(data) {
         	console.log('html' + data);
         	 
